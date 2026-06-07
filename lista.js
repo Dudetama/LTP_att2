@@ -14,7 +14,31 @@ class Pessoa {
     }
 }
 
-const pessoa = new Pessoa("Jolea", 12, "jubsjubs@gmail.com");
+const pessoa = new Pessoa("dodes", 12, "dodesdodes@gmail.com");
 pessoa.apresentar();
 pessoa.fazerAniversario();
 pessoa.apresentar();
+
+class ContaBancaria {
+    constructor(numero, titular, saldo){
+        this.numero = numero;
+        this.titular = titular;
+        this.saldo = saldo;
+    }
+
+    depositar(valor){
+        this.saldo += valor;
+    }
+
+    sacar(valor){
+        if(this.saldo >= valor){
+            this.saldo -= valor;
+        } else {
+            console.log("Saldo insuficiente");
+        }
+    }
+
+    exibirSaldo(){
+        console.log("Saldo atual R$ " + this.saldo);
+    }
+}
