@@ -257,3 +257,50 @@ gerente.adicionarMembro("Duda");
 gerente.adicionarMembro("Jolea");
 console.log(gerente.equipe);
 console.log(gerente.calcularSalarioTotal());
+
+class Veiculo {
+    constructor(marca, modelo, velocidade) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidade = velocidade;
+    }
+
+    acelerar() {
+        this.velocidade += 10;
+        console.log(`Velocidade: ${this.velocidade} km/h`);
+    }
+
+    frear() {
+        this.velocidade -= 10;
+        console.log(`Velocidade: ${this.velocidade} km/h`);
+    }
+}
+
+class Carro extends Veiculo {
+    constructor(marca, modelo, velocidade, litrosNoTanque) {
+        super(marca, modelo, velocidade);
+        this.litrosNoTanque = litrosNoTanque;
+    }
+
+    acelerar() {
+        this.litrosNoTanque -= 1;
+        super.acelerar();
+    }
+}
+
+class CarroEletrico extends Veiculo {
+    constructor(marca, modelo, velocidade, bateriaKwh) {
+        super(marca, modelo, velocidade);
+        this.bateriaKwh = bateriaKwh;
+    }
+
+    acelerar() {
+        this.bateriaKwh -= 2;
+        super.acelerar();
+    }
+}
+
+const carro = new Carro("Fiat", "Uno", 0, 30);
+const eletrico = new CarroEletrico("Tesla", "Model 3", 0, 100);
+carro.acelerar();
+eletrico.acelerar();
